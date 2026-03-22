@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground | Typing Keys</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts: Inter and Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Decor -->
+    <div class="bg-accent-top"></div>
+    <div class="bg-accent-bottom"></div>
+    <div id="particles-container" class="particles-container"></div>
+
+    <section id="game-view" class="view active">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="header-left">
+                <a href="index.html" id="logo" class="logo">Typing Keys</a>
+            </div>
+            <div class="header-center">
+                <div class="mode-selector">
+                    <button id="mode-lives" class="mode-btn active">
+                        <i class="fas fa-heart pulse"></i>
+                        <span>LIVES</span>
+                    </button>
+                    <button id="mode-timer" class="mode-btn">
+                        <i class="fas fa-clock"></i>
+                        <span>60s SPRINT</span>
+                    </button>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="stat-badge">
+                    <i class="fas fa-crosshair"></i>
+                    <span id="accuracy-val">100%</span>
+                    <span class="stat-label">ACC</span>
+                </div>
+                <div class="score-container">
+                    <div class="score-label">SCORE</div>
+                    <div id="score-val" class="score-value">0</div>
+                </div>
+                <div class="lives-timer-container">
+                    <!-- Lives view -->
+                    <div id="lives-display" class="lives-display">
+                        <div class="life-dot active"></div>
+                        <div class="life-dot active"></div>
+                        <div class="life-dot active"></div>
+                        <div class="life-dot active"></div>
+                        <div class="life-dot active"></div>
+                    </div>
+                    <!-- Timer view -->
+                    <div id="timer-display" class="timer-display hidden">
+                        <div class="time-label">TIME</div>
+                        <div id="time-val" class="time-value">60s</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Playground -->
+        <main id="game-playground" class="game-playground">
+            <!-- Ready Message (Initial Start) -->
+            <div id="ready-screen" class="ready-screen">
+                <div class="ready-content">
+                    <h2 class="ready-title">Ready?</h2>
+                    <p class="ready-text">Speed and accuracy are key.</p>
+                </div>
+                <button id="start-challenge-btn" class="btn btn-primary btn-large">
+                    <span>Start Challenge</span>
+                </button>
+            </div>
+
+            <!-- Falling Word Container -->
+            <div id="word-container" class="word-container"></div>
+        </main>
+
+        <!-- Controls -->
+        <div class="controls-bar">
+            <div class="controls-container">
+                <div class="input-wrapper">
+                    <input type="text" id="game-input" placeholder="Type..." autocomplete="off">
+                    <div class="input-indicator"></div>
+                </div>
+                <div class="actions-wrapper">
+                    <button id="restart-btn" class="action-btn" title="Restart">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button id="pause-btn" class="action-btn pause-btn" title="Pause">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                    <button id="quit-btn" class="action-btn quit-btn" title="Quit">
+                        <i class="fas fa-square"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    <!-- Overlays -->
+    <div id="game-over-modal" class="modal-overlay hidden">
+        <div class="modal-content game-over-content">
+            <div class="modal-header">
+                <h2 class="over-title">Game Over</h2>
+                <p class="over-subtitle">The Sky is Clearing</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box amber">
+                    <i class="fas fa-bolt"></i>
+                    <div id="final-score" class="stat-val">0</div>
+                    <div class="stat-box-label">Total Score</div>
+                </div>
+                <div class="stat-box blue">
+                    <i class="fas fa-crosshair"></i>
+                    <div id="final-accuracy" class="stat-val">100%</div>
+                    <div class="stat-box-label">Accuracy</div>
+                </div>
+            </div>
+            <button id="try-again-btn" class="btn btn-primary btn-full">
+                Try Again
+            </button>
+        </div>
+    </div>
+
+    <script src="js/shared.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
